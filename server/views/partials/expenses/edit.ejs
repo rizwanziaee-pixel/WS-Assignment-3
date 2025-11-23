@@ -1,0 +1,87 @@
+<!-- server/views/Expenses/edit.ejs -->
+<%- include ../partials/header.ejs %>
+<%- include ../partials/main_nav.ejs %>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <div class="card shadow">
+                <div class="card-header text-white text-center" style="background-color: #ff9500;">
+                    <h2><i class="fas fa-edit"></i> <%= title %></h2>
+                </div>
+                <div class="card-body" style="background-color: #fff8e1;">
+                    <form class="form" method="post">
+                        <div class="mb-3">
+                            <label for="titleTextField" class="form-label">Title:</label>
+                            <input type="text" 
+                                   class="form-control"
+                                   id="titleTextField"
+                                   placeholder="Enter expense title"
+                                   name="title"
+                                   value="<%= Expense.title %>"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="vendorTextField" class="form-label">Vendor:</label>
+                            <input type="text" 
+                                   class="form-control"
+                                   id="vendorTextField"
+                                   placeholder="Enter vendor name"
+                                   name="vendor"
+                                   value="<%= Expense.vendor %>"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="costTextField" class="form-label">Amount ($):</label>
+                            <input type="number" 
+                                   class="form-control"
+                                   id="costTextField"
+                                   placeholder="0.00"
+                                   name="cost"
+                                   value="<%= Expense.cost %>"
+                                   step="0.01"
+                                   min="0"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="categorySelect" class="form-label">Category:</label>
+                            <select class="form-select" 
+                                    id="categorySelect" 
+                                    name="category" 
+                                    required>
+                                <option value="Meal" <%= Expense.category === 'Meal' ? 'selected' : '' %>>Meal</option>
+                                <option value="Snack" <%= Expense.category === 'Snack' ? 'selected' : '' %>>Snack</option>
+                                <option value="Drink" <%= Expense.category === 'Drink' ? 'selected' : '' %>>Drink</option>
+                                <option value="Other" <%= Expense.category === 'Other' ? 'selected' : '' %>>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="dateField" class="form-label">Date:</label>
+                            <input type="date" 
+                                   class="form-control"
+                                   id="dateField"
+                                   name="date"
+                                   value="<%= new Date(Expense.date).toISOString().split('T')[0] %>"
+                                   required>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-warning btn-lg" type="submit">
+                                <i class="fas fa-save"></i> Update Expense
+                            </button>
+                            <a href="/expenses" class="btn btn-secondary btn-lg">
+                                <i class="fas fa-times"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include ../partials/footer.ejs %>

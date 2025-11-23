@@ -1,0 +1,89 @@
+<!-- server/views/Expenses/add.ejs -->
+<%- include ../partials/header.ejs %>
+<%- include ../partials/main_nav.ejs %>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <div class="card shadow">
+                <div class="card-header text-white text-center" style="background-color: #ff9500;">
+                    <h2><i class="fas fa-plus-circle"></i> <%= title %></h2>
+                </div>
+                <div class="card-body" style="background-color: #fff8e1;">
+                    <form class="form" method="post">
+                        <div class="mb-3">
+                            <label for="titleTextField" class="form-label">Title:</label>
+                            <input type="text" 
+                                   class="form-control"
+                                   id="titleTextField"
+                                   placeholder="e.g., Lunch at Campus Cafe"
+                                   name="title" 
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="vendorTextField" class="form-label">Vendor:</label>
+                            <input type="text" 
+                                   class="form-control"
+                                   id="vendorTextField"
+                                   placeholder="e.g., Subway, Starbucks"
+                                   name="vendor" 
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="costTextField" class="form-label">Amount ($):</label>
+                            <input type="number" 
+                                   class="form-control"
+                                   id="costTextField"
+                                   placeholder="0.00"
+                                   name="cost"
+                                   step="0.01"
+                                   min="0"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="categorySelect" class="form-label">Category:</label>
+                            <select class="form-select" 
+                                    id="categorySelect" 
+                                    name="category" 
+                                    required>
+                                <option value="">Select Category</option>
+                                <option value="Meal">Meal</option>
+                                <option value="Snack">Snack</option>
+                                <option value="Drink">Drink</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="dateField" class="form-label">Date:</label>
+                            <input type="date" 
+                                   class="form-control"
+                                   id="dateField"
+                                   name="date"
+                                   required>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-success btn-lg" type="submit">
+                                <i class="fas fa-check"></i> Add Expense
+                            </button>
+                            <a href="/expenses" class="btn btn-secondary btn-lg">
+                                <i class="fas fa-times"></i> Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Auto-set today's date -->
+<script>
+    document.getElementById('dateField').valueAsDate = new Date();
+</script>
+
+<%- include ../partials/footer.ejs %>
