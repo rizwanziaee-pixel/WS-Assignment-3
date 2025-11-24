@@ -1,32 +1,33 @@
 <!-- server/views/partials/main_nav.ejs -->
-<nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid px-4">
         <a class="navbar-brand fw-bold" href="/">
-            <i class="fas fa-utensils"></i> CampusFuel
+            <img src="/images/campusfuel logo.png" alt="CampusFuel">
+            <span>CampusFuel</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <% if(title == "Home") { %>
-                        <a class="nav-link active" aria-current="page" href="/home">
+                        <a class="nav-link active" href="/home">
                             <i class="fas fa-home"></i> Home
                         </a>
                     <% } else { %>
-                        <a class="nav-link" aria-current="page" href="/home">
+                        <a class="nav-link" href="/home">
                             <i class="fas fa-home"></i> Home
                         </a>
                     <% } %>
                 </li>
                 <li class="nav-item">
                     <% if(title == "All Expenses" || title == "Add New Expense" || title == "Edit Expense") { %>
-                        <a class="nav-link active" aria-current="page" href="/expenses">
+                        <a class="nav-link active" href="/expenses">
                             <i class="fas fa-receipt"></i> Expenses
                         </a>
                     <% } else { %>
-                        <a class="nav-link" aria-current="page" href="/expenses">
+                        <a class="nav-link" href="/expenses">
                             <i class="fas fa-receipt"></i> Expenses
                         </a>
                     <% } %>

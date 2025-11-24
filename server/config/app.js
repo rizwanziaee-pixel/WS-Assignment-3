@@ -27,6 +27,7 @@ app.use('/bootstrap', express.static(path.join(__dirname, '../../node_modules/bo
 app.use('/@fortawesome', express.static(path.join(__dirname, '../../node_modules/@fortawesome')));
 app.use('/jquery', express.static(path.join(__dirname, '../../node_modules/jquery/dist')));
 
+
 // Route configuration
 app.use('/', indexRouter);
 app.use('/expenses', expenseRouter);
