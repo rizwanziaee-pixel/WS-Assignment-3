@@ -16,7 +16,7 @@ router.get('/', async(req, res, next) => {
             totalExpenses += expense.cost;
         });
 
-        res.render('Expenses/list', {
+        res.render('expenses/list', {
             title: 'All Expenses',
             ExpenseList: ExpenseList,
             totalExpenses: totalExpenses.toFixed(2)
@@ -24,7 +24,7 @@ router.get('/', async(req, res, next) => {
     }
     catch(err) {
         console.log(err);
-        res.render('Expenses/list', {
+        res.render('expenses/list', {
             error: 'Error on the Server'
         });
     }
@@ -33,13 +33,13 @@ router.get('/', async(req, res, next) => {
 // GET route for displaying the Add Expense Page --> Create Operation
 router.get('/add', async(req, res, next) => {
     try {
-        res.render('Expenses/add', {
+        res.render('expenses/add', {
             title: 'Add New Expense'
         });
     }
     catch(err) {
         console.log(err);
-        res.render('Expenses/list', {
+        res.render('expenses/list', {
             error: 'Error on the Server'
         });
     }
@@ -62,7 +62,7 @@ router.post('/add', async(req, res, next) => {
     }
     catch(err) {
         console.log(err);
-        res.render('Expenses/list', {
+        res.render('expenses/list', {
             error: 'Error on the Server'
         });
     }
@@ -73,7 +73,7 @@ router.get('/edit/:id', async(req, res, next) => {
     try {
         const id = req.params.id;
         const expenseToEdit = await Expense.findById(id);
-        res.render("Expenses/edit", {
+        res.render("expenses/edit", {
             title: 'Edit Expense',
             Expense: expenseToEdit
         });
